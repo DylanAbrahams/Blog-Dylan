@@ -1,0 +1,27 @@
+html {
+    --main-color: #3498db;
+    --secondary-color: #2ecc71;
+}
+
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+
+/* ul {
+    list-style-type: none;
+    padding: 0;
+} */
+
+li {
+    margin: 10px 0;
+}
+
+main {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
