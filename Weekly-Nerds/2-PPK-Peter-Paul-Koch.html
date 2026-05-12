@@ -13,205 +13,208 @@
         <h1>WN 2 - PPK (Peter Paul Koch)</h1>
         <p>Dit is de inhoud voor Weekly Nerds nummer 2 met PPK (Peter Paul Koch).</p>
 
-        <h2>Aantekeningen</h2>
+        <section>
+            <h2>Waar ging het over?</h2>
+            <p>De presentatie ging over hoe browsers echt werken achter de schermen. Wat doet de browser met HTML, CSS
+                en JavaScript? Wat zijn de verschillende soorten browsers die we door de jaren gehad hebben en hoe
+                verschillen ze van elkaar?</p>
+        </section>
 
-        <ul>
-            <li>MDN</li>
-            <li>CanIUse</li>
-        </ul>
+        <section>
+            <h2>Wat vond ik ervan?</h2>
+            <p>Dit vond ik by far de beste Weekly Nerd die we gehad hebben, niet alleen omdat het een interessant
+                onderwerp is waar ik veel van geleerd heb, maar ook omdat hij het heel goed kon overbrengen. Wat zijn
+                alle onderdelen van een site? Hoe gaat de browser om met HTML, CSS en JavaScript? Welke browsers werden
+                vroeger gebruikt en hoe is het met ze afgelopen? Het was een leuke speech</p>
+        </section>
 
-        <p>Hij maakte projecten die uitleg gaven over bugs in HTML/CSS.</p>
-        <p>Nu werkt hij aan Performance.now() en CSS Day.</p>
 
-        <h3>Internet</h3>
-        <p>Internet is het transport van de browser.</p>
+        <section>
+            <h2>Mijn Aantekeningen</h2>
+            <ul>
+                <li>MDN</li>
+                <li>CanIUse</li>
+            </ul>
 
-        <h3>Geschiedenis van browsers</h3>
+            <p>Hij maakte projecten die uitleg gaven over bugs in HTML/CSS.</p>
+            <p>Nu werkt hij aan Performance.now() en CSS Day.</p>
 
-        <ul>
-            <li>HTML - Skelet van je site</li>
-            <li>CSS - Opmaak van je site</li>
-            <li>DOM - Kopie van HTML geschikt voor JavaScript</li>
-            <li>AOM - Accessibility Object Model - Speciaal voor screenreaders</li>
-            <li>Interface - Waar je URL’s invoert en navigeert</li>
-            <li>JavaScript Engine - Verwerkt JavaScript code</li>
-        </ul>
+            <h3>Internet</h3>
+            <p>Internet is het transport van de browser.</p>
 
-        <p>Je schrijft JavaScript, de engine voert het uit.</p>
-        <p>De browser haalt informatie op en stuurt dit terug via de DOM.</p>
+            <h3>Geschiedenis van browsers</h3>
+            <ul>
+                <li>HTML - Skelet van je site</li>
+                <li>CSS - Opmaak van je site</li>
+                <li>DOM - Kopie van HTML geschikt voor JavaScript</li>
+                <li>AOM - Accessibility Object Model - Speciaal voor screenreaders</li>
+                <li>Interface - Waar je URL's invoert en navigeert</li>
+                <li>JavaScript Engine - Verwerkt JavaScript code</li>
+            </ul>
 
-        <h3>HTML/CSS Parsers</h3>
+            <p>Je schrijft JavaScript, de engine voert het uit.</p>
+            <p>De browser haalt informatie op en stuurt dit terug via de DOM.</p>
 
-        <p>Parsers lezen code en zetten dit om naar logica binnen de browser.</p>
+            <h3>HTML/CSS Parsers</h3>
+            <p>Parsers lezen code en zetten dit om naar logica binnen de browser.</p>
+            <ul>
+                <li>Bijvoorbeeld: p wordt een paragraaf.</li>
+            </ul>
 
-        <ul>
-            <li>Bijvoorbeeld: p wordt een paragraaf.</li>
-        </ul>
+            <h3>Layout</h3>
+            <p>Hoe HTML en CSS uiteindelijk weergegeven worden.</p>
 
-        <h3>Layout</h3>
+            <ul>
+                <li>Probeer layout zo min mogelijk aan te passen.</li>
+                <li>Layout wijzigingen zijn zwaar voor performance.</li>
+                <li>Doe het liever direct goed.</li>
+                <li>Houd het simpel.</li>
+            </ul>
 
-        <p>Hoe HTML en CSS uiteindelijk weergegeven worden.</p>
+            <h3>Rendering Engine</h3>
+            <ul>
+                <li>Niet hetzelfde als de interface of JS engine.</li>
+                <li>Verantwoordelijk voor HTML/CSS parsing en rendering.</li>
+                <li>Bouwt de DOM en AOM trees op.</li>
+            </ul>
 
-        <ul>
-            <li>Probeer layout zo min mogelijk aan te passen.</li>
-            <li>Layout wijzigingen zijn zwaar voor performance.</li>
-            <li>Doe het liever direct goed.</li>
-            <li>Houd het simpel.</li>
-        </ul>
+            <p>Chromium werkt op meerdere browsers zoals Chrome, Edge en Opera.</p>
+            <p>Sommige browsers ondersteunen andere features dan anderen.</p>
 
-        <h3>Rendering Engine</h3>
+            <h3>Core vs DOM</h3>
+            <ul>
+                <li>Core - Wat JavaScript een programmeertaal maakt.</li>
+                <li>DOM - Hoe JavaScript HTML kan aanpassen.</li>
+            </ul>
 
-        <ul>
-            <li>Niet hetzelfde als de interface of JS engine.</li>
-            <li>Verantwoordelijk voor HTML/CSS parsing en rendering.</li>
-            <li>Bouwt de DOM en AOM trees op.</li>
-        </ul>
+            <h3>Render Blocking</h3>
+            <p>De browser moet bepalen welke bestanden eerst geladen worden.</p>
 
-        <p>Chromium werkt op meerdere browsers zoals Chrome, Edge en Opera.</p>
-        <p>Sommige browsers ondersteunen andere features dan anderen.</p>
+            <ul>
+                <li>CSS blokkeert rendering.</li>
+                <li>JavaScript blokkeert ook, tenzij async of defer gebruikt wordt.</li>
+            </ul>
 
-        <h3>Core vs DOM</h3>
+            <ul>
+                <li>script src = NU</li>
+                <li>script defer src = LATER</li>
+                <li>script async src = MAAKT NIET UIT MAAR NIET NU</li>
+            </ul>
 
-        <ul>
-            <li>Core - Wat JavaScript een programmeertaal maakt.</li>
-            <li>DOM - Hoe JavaScript HTML kan aanpassen.</li>
-        </ul>
+            <p>De browser wacht met HTML verwerken totdat duidelijk is wat JavaScript doet.</p>
+            <ul>
+                <li>Laad grote JS bestanden later met async.</li>
+                <li>Of plaats JavaScript onderaan je HTML.</li>
+            </ul>
 
-        <h3>Render Blocking</h3>
+            <p>CSS wordt eerder geladen zodat je geen ongestijlde HTML ziet.</p>
 
-        <p>De browser moet bepalen welke bestanden eerst geladen worden.</p>
+            <h3>Backward Compatibility</h3>
+            <p>Als iets ooit gewerkt heeft in een browser, moet het blijven werken.</p>
+            <ul>
+                <li>DOCTYPE ondersteunt nog oude Internet Explorer functionaliteit.</li>
+                <li>form.object elements werkt nog steeds.</li>
+                <li>body bgcolor werkt nog steeds.</li>
+                <li>frameset werkte met opgesplitste HTML pagina's.</li>
+            </ul>
 
-        <ul>
-            <li>CSS blokkeert rendering.</li>
-            <li>JavaScript blokkeert ook, tenzij async of defer gebruikt wordt.</li>
-        </ul>
+            <p>Blinkende tekst werd uiteindelijk verwijderd.</p>
+            <p>Sommige historische browserfouten bestaan vandaag nog steeds.</p>
 
-        <ul>
-            <li>script src = NU</li>
-            <li>script defer src = LATER</li>
-            <li>script async src = MAAKT NIET UIT MAAR NIET NU</li>
-        </ul>
+            <h3>Browsers</h3>
+            <h4>WWW Browser (1990)</h4>
+            <ul>
+                <li>Eerste browser door Tim Berners-Lee.</li>
+                <li>Herbouwd in 2019.</li>
+                <li>https://worldwideweb.cern.ch</li>
+            </ul>
 
-        <p>De browser wacht met HTML verwerken totdat duidelijk is wat JavaScript doet.</p>
+            <h4>Mosaic (1993)</h4>
+            <ul>
+                <li>Introduceerde afbeeldingen.</li>
+                <li>Was non-profit.</li>
+            </ul>
 
-        <ul>
-            <li>Laad grote JS bestanden later met async.</li>
-            <li>Of plaats JavaScript onderaan je HTML.</li>
-        </ul>
+            <h4>Netscape (1994)</h4>
+            <ul>
+                <li>Gemaakt door dezelfde mensen als Mosaic.</li>
+                <li>Betaalde browser.</li>
+                <li>Later Mozilla.</li>
+            </ul>
 
-        <p>CSS wordt eerder geladen zodat je geen ongestijlde HTML ziet.</p>
+            <h4>Internet Explorer (1995)</h4>
+            <ul>
+                <li>Microsoft maakte de browser gratis.</li>
+                <li>Dat veranderde de browsermarkt volledig.</li>
+            </ul>
 
-        <h3>Backward Compatibility</h3>
+            <h4>Opera (1995)</h4>
+            <ul>
+                <li>Was vroeger populair.</li>
+                <li>Volgens Peter Paul Koch nu minder relevant.</li>
+            </ul>
 
-        <p>Als iets ooit gewerkt heeft in een browser, moet het blijven werken.</p>
+            <h4>IE 5 Mac (2000)</h4>
+            <ul>
+                <li>Apple werd ondersteund door Microsoft.</li>
+                <li>Werkte anders dan IE op Windows.</li>
+            </ul>
 
-        <ul>
-            <li>DOCTYPE ondersteunt nog oude Internet Explorer functionaliteit.</li>
-            <li>form.object elements werkt nog steeds.</li>
-            <li>body bgcolor werkt nog steeds.</li>
-            <li>frameset werkte met opgesplitste HTML pagina’s.</li>
-        </ul>
+            <h4>Konqueror (2000)</h4>
+            <ul>
+                <li>Begon als Linux hobbyproject.</li>
+                <li>Loste veel problemen van eerdere browsers op.</li>
+            </ul>
 
-        <p>Blinkende tekst werd uiteindelijk verwijderd.</p>
+            <h4>Safari (2003)</h4>
+            <ul>
+                <li>Gebruikt Webkit rendering engine.</li>
+                <li>Webkit bestaat nog steeds.</li>
+            </ul>
 
-        <p>Sommige historische browserfouten bestaan vandaag nog steeds.</p>
+            <h4>Firefox (2004)</h4>
+            <ul>
+                <li>Opvolger van Netscape.</li>
+                <li>Gemaakt door Mozilla.</li>
+            </ul>
 
-        <h3>Browsers</h3>
+            <h4>Safari iOS (2007)</h4>
+            <ul>
+                <li>Eerste populaire mobiele browser.</li>
+                <li>Introduceerde touch events.</li>
+                <li>Andere mobiele browsers gebruikten ook Webkit.</li>
+            </ul>
 
-        <h4>WWW Browser (1990)</h4>
-        <ul>
-            <li>Eerste browser door Tim Berners-Lee.</li>
-            <li>Herbouwd in 2019.</li>
-            <li>https://worldwideweb.cern.ch</li>
-        </ul>
+            <h4>Chrome (2008)</h4>
+            <ul>
+                <li>Google vond dat Apple te weinig deed.</li>
+                <li>Gebaseerd op Webkit.</li>
+            </ul>
 
-        <h4>Mosaic (1993)</h4>
-        <ul>
-            <li>Introduceerde afbeeldingen.</li>
-            <li>Was non-profit.</li>
-        </ul>
+            <h4>Flow (2020)</h4>
+            <ul>
+                <li>Niet gebaseerd op bestaande rendering engines.</li>
+                <li>Ondersteunt sommige CSS onderdelen niet.</li>
+                <li>Gemaakt door een Engels persoon.</li>
+            </ul>
 
-        <h4>Netscape (1994)</h4>
-        <ul>
-            <li>Gemaakt door dezelfde mensen als Mosaic.</li>
-            <li>Betaalde browser.</li>
-            <li>Later Mozilla.</li>
-        </ul>
+            <h4>Ladybird (2024)</h4>
+            <ul>
+                <li>Vergelijkbaar idee als Flow.</li>
+                <li>Gemaakt door een Zweedse ontwikkelaar.</li>
+            </ul>
 
-        <h4>Internet Explorer (1995)</h4>
-        <ul>
-            <li>Microsoft maakte de browser gratis.</li>
-            <li>Dat veranderde de browsermarkt volledig.</li>
-        </ul>
+            <h3>Browsermarkt 2024</h3>
+            <p>Chrome domineert, gevolgd door Safari en Firefox.</p>
 
-        <h4>Opera (1995)</h4>
-        <ul>
-            <li>Was vroeger populair.</li>
-            <li>Volgens Peter Paul Koch nu minder relevant.</li>
-        </ul>
-
-        <h4>IE 5 Mac (2000)</h4>
-        <ul>
-            <li>Apple werd ondersteund door Microsoft.</li>
-            <li>Werkte anders dan IE op Windows.</li>
-        </ul>
-
-        <h4>Konqueror (2000)</h4>
-        <ul>
-            <li>Begon als Linux hobbyproject.</li>
-            <li>Loste veel problemen van eerdere browsers op.</li>
-        </ul>
-
-        <h4>Safari (2003)</h4>
-        <ul>
-            <li>Gebruikt Webkit rendering engine.</li>
-            <li>Webkit bestaat nog steeds.</li>
-        </ul>
-
-        <h4>Firefox (2004)</h4>
-        <ul>
-            <li>Opvolger van Netscape.</li>
-            <li>Gemaakt door Mozilla.</li>
-        </ul>
-
-        <h4>Safari iOS (2007)</h4>
-        <ul>
-            <li>Eerste populaire mobiele browser.</li>
-            <li>Introduceerde touch events.</li>
-            <li>Andere mobiele browsers gebruikten ook Webkit.</li>
-        </ul>
-
-        <h4>Chrome (2008)</h4>
-        <ul>
-            <li>Google vond dat Apple te weinig deed.</li>
-            <li>Gebaseerd op Webkit.</li>
-        </ul>
-
-        <h4>Flow (2020)</h4>
-        <ul>
-            <li>Niet gebaseerd op bestaande rendering engines.</li>
-            <li>Ondersteunt sommige CSS onderdelen niet.</li>
-            <li>Gemaakt door een Engels persoon.</li>
-        </ul>
-
-        <h4>Ladybird (2024)</h4>
-        <ul>
-            <li>Vergelijkbaar idee als Flow.</li>
-            <li>Gemaakt door een Zweedse ontwikkelaar.</li>
-        </ul>
-
-        <h3>Browsermarkt 2024</h3>
-
-        <p>Chrome domineert, gevolgd door Safari en Firefox.</p>
-
-        <h3>Igalia</h3>
-
-        <ul>
-            <li>Spaans open source bedrijf.</li>
-            <li>Werken aan onderdelen van rendering engines.</li>
-            <li>Bijvoorbeeld grids in Chrome.</li>
-            <li>Maken geen eigen browser.</li>
-        </ul>
+            <h3>Igalia</h3>
+            <ul>
+                <li>Spaans open source bedrijf.</li>
+                <li>Werken aan onderdelen van rendering engines.</li>
+                <li>Bijvoorbeeld grids in Chrome.</li>
+                <li>Maken geen eigen browser.</li>
+            </ul>
+        </section>
     </main>
 </body>
 

@@ -10,116 +10,136 @@
 
 <body>
     <main>
-        <h1>WN 1 - Kilian Valkhof</h1>
+        <h1>WN 1 - Kilian Valkhof - The Rule of Least Power</h1>
         <p>Dit is de inhoud voor Weekly Nerd nummer 1 met Kilian Valkhof.</p>
 
+        <section>
+            <h2>Waar ging het over?</h2>
+            <p>Kilian heeft gesproken over de Rule of Least Power. Dit houdt vooral in dat je vaak moest kiezen voor
+                HTML/CSS aangezien deze stabieler zijn dan JavaScript. JavaScript is krachtig, maar ook complex en
+                breekbaar. Moderne browsers kunnen veel UI-interacties zonder JS. Tijdens de presentatie heeft hij
+                verschillende voorbeelden gegeven van interacties die vroeger altijd met JS werden ontwikkeld waar nu
+                ook HTML/CSS oplossingen voor zijn.</p>
+        </section>
 
-        <h2>Aantekeningen</h2>
+        <section>
+            <h2>Wat vond ik ervan?</h2>
+            <p>Ik vond dit een interessante presentatie om mee te beginnen. Hij heeft zeker een punt dat een
+                UI-interactie maken met HTML/CSS een stuk consistenter is dan een zelfgemaakte met JavaScript, aangezien
+                een HTML element alles heeft wat nodig is en je met JS alle detail zelf moet regelen. Verder heb je de
+                kans dat JavaScript stuk gaat en je hele interactie stuk kan gaan.</p>
+            <p>Wel vind ik het een opvallende uitspraak om geen JavaScript te mogen gebruiken ondanks er veel dingen
+                lastig of niet te doen zijn met puur HTML/CSS. </p>
+        </section>
 
-        <h3>4 februari 2026</h3>
 
-        <h3>Stop using JS for that</h3>
 
-        <p>JavaScript features overbrengen naar HTML/CSS.</p>
+        <section>
+            <h2>Mijn Aantekeningen</h2>
+            <h3>4 februari 2026</h3>
 
-        <ul>
-            <li>Sommige dingen bestaan al een paar maanden, andere al jaren.</li>
-            <li>Al 20 jaar bezig met websites.</li>
-        </ul>
+            <h3>Stop using JS for that</h3>
+            <p>JavaScript features overbrengen naar HTML/CSS.</p>
 
-        <h4>Polypane</h4>
-        <ul>
-            <li>Gratis voor studenten</li>
-            <li>Helpt met responsive design</li>
-            <li>Gemaakt met JavaScript (dus hij is niet tegen JS)</li>
-        </ul>
+            <ul>
+                <li>Sommige dingen bestaan al een paar maanden, andere al jaren.</li>
+                <li>Al 20 jaar bezig met websites.</li>
+            </ul>
 
-        <h4>Voor mensen die React gebruiken</h4>
-        <ul>
-            <li>JSX is een dialect van HTML</li>
-        </ul>
+            <h4>Polypane</h4>
+            <ul>
+                <li>Gratis voor studenten</li>
+                <li>Helpt met responsive design</li>
+                <li>Gemaakt met JavaScript (dus hij is niet tegen JS)</li>
+            </ul>
 
-        <h3>Rule of Least Power</h3>
-        <ul>
-            <li>Choose the least powerful language suitable for a given purpose</li>
-            <li>Als je iets in HTML kan doen, doe het in HTML.</li>
-            <li>Kan het niet in HTML? Gebruik CSS.</li>
-            <li>Pas daarna JavaScript gebruiken.</li>
-            <li>JavaScript is erg breekbaar.</li>
-            <li>Browsers moeten meer moeite doen voor JavaScript dan voor HTML.</li>
-            <li>Oude code blijft vaak jarenlang werken.</li>
-        </ul>
+            <h4>Voor mensen die React gebruiken</h4>
+            <ul>
+                <li>JSX is een dialect van HTML</li>
+            </ul>
 
-        <h3>Custom Switches</h3>
-        <ul>
-            <li>Veel developers vragen hierom.</li>
-            <li>Kan met divs en onclick handlers.</li>
-            <li>Kan ook volledig met HTML/CSS via checkboxes.</li>
-            <li>input { appearance: none; }</li>
-            <li>Haalt de standaard styling weg.</li>
-            <li>::before wordt gebruikt voor de witte stip.</li>
-            <li>::checked toont de actieve status met CSS.</li>
-            <li>::focus geeft focus states voor toetsenbordnavigatie.</li>
-            <li>Mensen gebruiken vaak outline: none, maar moeten dan wel een alternatief geven.</li>
-            <li>Safari heeft een speciale input switch modus met eenvoudigere styling.</li>
-        </ul>
+            <h3>Rule of Least Power</h3>
+            <ul>
+                <li>Choose the least powerful language suitable for a given purpose</li>
+                <li>Als je iets in HTML kan doen, doe het in HTML.</li>
+                <li>Kan het niet in HTML? Gebruik CSS.</li>
+                <li>Pas daarna JavaScript gebruiken.</li>
+                <li>JavaScript is erg breekbaar.</li>
+                <li>Browsers moeten meer moeite doen voor JavaScript dan voor HTML.</li>
+                <li>Oude code blijft vaak jarenlang werken.</li>
+            </ul>
 
-        <h3>In-page Transitions</h3>
-        <ul>
-            <li>Vroeger vaak gedaan met jQuery.</li>
-            <li>Dat was traag voor gebruikers.</li>
-            <li>Kan tegenwoordig met CSS.</li>
-            <li>html { scroll-behavior: smooth; }</li>
-            <li>Sommige mensen worden misselijk van animaties.</li>
-            <li>Gebruik daarom prefers-reduced-motion.</li>
-        </ul>
+            <h3>Custom Switches</h3>
+            <ul>
+                <li>Veel developers vragen hierom.</li>
+                <li>Kan met divs en onclick handlers.</li>
+                <li>Kan ook volledig met HTML/CSS via checkboxes.</li>
+                <li>input { appearance: none; }</li>
+                <li>Haalt de standaard styling weg.</li>
+                <li>::before wordt gebruikt voor de witte stip.</li>
+                <li>::checked toont de actieve status met CSS.</li>
+                <li>::focus geeft focus states voor toetsenbordnavigatie.</li>
+                <li>Mensen gebruiken vaak outline: none, maar moeten dan wel een alternatief geven.</li>
+                <li>Safari heeft een speciale input switch modus met eenvoudigere styling.</li>
+            </ul>
 
-        <h3>Accordions</h3>
-        <ul>
-            <li>details verbergt en toont inhoud.</li>
-            <li>summary blijft zichtbaar.</li>
-            <li>p bevat de verborgen inhoud.</li>
-            <li>Met details open staat het standaard open.</li>
-            <li>Het pijltje kan vervangen worden met CSS via ::marker.</li>
-            <li>Gebruik een pointer cursor bij hover.</li>
-            <li>Geef gebruikers feed forward.</li>
-            <li>Op oudere iOS-versies waren interactieve knoppen blauw.</li>
-            <li>Twee details met dezelfde naam kunnen niet tegelijk open staan.</li>
-        </ul>
+            <h3>In-page Transitions</h3>
+            <ul>
+                <li>Vroeger vaak gedaan met jQuery.</li>
+                <li>Dat was traag voor gebruikers.</li>
+                <li>Kan tegenwoordig met CSS.</li>
+                <li>html { scroll-behavior: smooth; }</li>
+                <li>Sommige mensen worden misselijk van animaties.</li>
+                <li>Gebruik daarom prefers-reduced-motion.</li>
+            </ul>
 
-        <h3>dialog</h3>
-        <ul>
-            <li>Heeft momenteel nog een beetje JavaScript nodig.</li>
-            <li>Wordt gezien als vervanging voor sommige APIs.</li>
-            <li>Is eigenlijk gewoon een div.</li>
-            <li>Wordt pas zichtbaar wanneer nodig.</li>
-            <li>Animaties hebben een begin- en eindpunt nodig.</li>
-            <li>@starting-style kan gebruikt worden voor animaties.</li>
-        </ul>
+            <h3>Accordions</h3>
+            <ul>
+                <li>details verbergt en toont inhoud.</li>
+                <li>summary blijft zichtbaar.</li>
+                <li>p bevat de verborgen inhoud.</li>
+                <li>Met details open staat het standaard open.</li>
+                <li>Het pijltje kan vervangen worden met CSS via ::marker.</li>
+                <li>Gebruik een pointer cursor bij hover.</li>
+                <li>Geef gebruikers feed forward.</li>
+                <li>Op oudere iOS-versies waren interactieve knoppen blauw.</li>
+                <li>Twee details met dezelfde naam kunnen niet tegelijk open staan.</li>
+            </ul>
 
-        <p>Al deze punten werken in alle browsers.</p>
+            <h3>dialog</h3>
+            <ul>
+                <li>Heeft momenteel nog een beetje JavaScript nodig.</li>
+                <li>Wordt gezien als vervanging voor sommige APIs.</li>
+                <li>Is eigenlijk gewoon een div.</li>
+                <li>Wordt pas zichtbaar wanneer nodig.</li>
+                <li>Animaties hebben een begin- en eindpunt nodig.</li>
+                <li>@starting-style kan gebruikt worden voor animaties.</li>
+            </ul>
 
-        <h3>Field Sizing</h3>
-        <ul>
-            <li>Maakt een element automatisch zo groot als de inhoud.</li>
-            <li>Werkt op Chrome en Safari.</li>
-        </ul>
+            <p>Al deze punten werken in alle browsers.</p>
 
-        <h3>Select</h3>
-        <ul>
-            <li>Select-elementen hebben standaard styling.</li>
-            <li>::picker(select) { appearance: base-select; }</li>
-            <li>De picker is het dropdown-pijltje van de select.</li>
-            <li>Standaard functionaliteit blijft werken.</li>
-            <li>Onderdelen kunnen individueel gestyled worden.</li>
-            <li>Werkt momenteel in Chrome.</li>
-            <li>Moet expliciet aangezet worden om oude websites niet te breken.</li>
-        </ul>
+            <h3>Field Sizing</h3>
+            <ul>
+                <li>Maakt een element automatisch zo groot als de inhoud.</li>
+                <li>Werkt op Chrome en Safari.</li>
+            </ul>
 
-        <h3>Scroll Driven Animations</h3>
-        <ul>
-            <li>Animaties gekoppeld aan scrollgedrag.</li>
-        </ul>
+            <h3>Select</h3>
+            <ul>
+                <li>Select-elementen hebben standaard styling.</li>
+                <li>::picker(select) { appearance: base-select; }</li>
+                <li>De picker is het dropdown-pijltje van de select.</li>
+                <li>Standaard functionaliteit blijft werken.</li>
+                <li>Onderdelen kunnen individueel gestyled worden.</li>
+                <li>Werkt momenteel in Chrome.</li>
+                <li>Moet expliciet aangezet worden om oude websites niet te breken.</li>
+            </ul>
+
+            <h3>Scroll Driven Animations</h3>
+            <ul>
+                <li>Animaties gekoppeld aan scrollgedrag.</li>
+            </ul>
+        </section>
     </main>
 </body>
 
