@@ -7,7 +7,7 @@
     ========================= */
 
     --bg: #111827;
-    --grid-line: rgba(255,255,255,0.03);
+    --grid-line: rgba(255, 255, 255, 0.03);
 
     --text: #d1d5db;
     --text-light: #f9fafb;
@@ -22,8 +22,22 @@
     --shadow-dark: #111827;
     --shadow-light: #4b5563;
 
-    --glow: rgba(0,245,255,0.6);
+    --glow: rgba(0, 245, 255, 0.6);
+
+    /* =========================
+       SPACING SYSTEM
+    ========================= */
+
+    --space-xs: 0.5rem;
+    --space-sm: 0.75rem;
+    --space-md: 1rem;
+    --space-lg: 1.5rem;
+    --space-xl: 2rem;
 }
+
+/* =========================
+   RESET
+========================= */
 
 * {
     margin: 0;
@@ -31,12 +45,19 @@
     box-sizing: border-box;
 }
 
+/* =========================
+   BODY
+========================= */
+
 body {
     font-family: 'Space Grotesk', sans-serif;
+
     background: var(--bg);
     color: var(--text-light);
+
     min-height: 100vh;
-    padding: 2rem;
+
+    padding: var(--space-lg);
 
     background-image:
         linear-gradient(var(--grid-line) 1px, transparent 1px),
@@ -45,9 +66,13 @@ body {
     background-size: 32px 32px;
 }
 
+/* =========================
+   LAYOUT
+========================= */
+
 main {
-    max-width: 1000px;
-    margin: auto;
+    max-width: 50em;
+    margin: 0 auto;
 }
 
 /* =========================
@@ -57,24 +82,28 @@ main {
 h1,
 h2 {
     font-family: 'Press Start 2P', cursive;
+    line-height: 1.5;
 }
 
 h1 {
-    font-size: 2rem;
-    margin-bottom: 2rem;
+    font-size: clamp(1.6rem, 4vw, 2.5rem);
+
+    margin-bottom: var(--space-lg);
+
     color: var(--primary);
-    text-shadow: 0 0 5px var(--primary), 0 0 15px var(--primary);
+
+    text-shadow:
+        0 0 5px var(--primary),
+        0 0 15px var(--primary);
 }
 
 h2 {
-    margin-top: 3rem;
-    margin-bottom: 1rem;
-    color: var(--secondary);
-    font-size: 1rem;
-}
+    margin-top: var(--space-xl);
+    margin-bottom: var(--space-sm);
 
-h3, h4 {
-    margin-top: 2rem;
+    color: var(--secondary);
+
+    font-size: clamp(0.9rem, 2vw, 1.1rem);
 }
 
 /* =========================
@@ -82,23 +111,38 @@ h3, h4 {
 ========================= */
 
 p {
-    font-size: 1.1rem;
+    font-size: clamp(1rem, 1.2vw, 1.1rem);
     line-height: 1.8;
     color: var(--text);
-    margin-bottom: 1rem;
+    margin-bottom: var(--space-md);
+}
+
+strong {
+    color: var(--text-light);
 }
 
 /* =========================
-   LIST RESET
+   LISTS
 ========================= */
 
 ul {
     list-style: none;
-    padding-left: 1.5rem;
+    padding-left: 0;
+    margin-bottom: var(--space-lg);
+}
+
+ul li {
+    color: var(--text);
+}
+
+/* content-only list items */
+main ul li:not(:has(a)) {
+    margin-bottom: var(--space-sm);
+    line-height: 1.7;
 }
 
 /* =========================
-   LINKS (GAME UI)
+   LINKS (GAME UI BUTTONS)
 ========================= */
 
 ul li a {
@@ -106,56 +150,62 @@ ul li a {
 
     background: var(--card-bg);
 
-    padding: 1rem;
+    padding: var(--space-md);
+
+    margin-bottom: var(--space-sm);
 
     border: 3px solid var(--border);
-
     border-radius: 12px;
 
     color: var(--text-light);
-
     text-decoration: none;
 
     font-size: 1rem;
     font-weight: 500;
 
-    transition: 0.15s ease;
+    overflow-wrap: break-word;
+
+    transition:
+        transform 0.15s ease,
+        border-color 0.15s ease,
+        box-shadow 0.15s ease,
+        color 0.15s ease;
 
     box-shadow:
         inset -3px -3px 0 var(--shadow-dark),
         inset 3px 3px 0 var(--shadow-light);
 }
 
-/* hover */
+ul li a::before {
+    content: "▶ ";
+    color: var(--accent);
+}
+
 ul li a:hover {
     transform: translateY(-2px);
 
     border-color: var(--primary);
-
     color: var(--primary);
 
-    box-shadow: 0 0 10px var(--glow);
+    box-shadow:
+        0 0 10px var(--glow),
+        inset -3px -3px 0 var(--shadow-dark),
+        inset 3px 3px 0 var(--shadow-light);
 }
 
-/* pijltje */
-ul li a::before {
-    content: "▶ ";
-    color: var(--accent);
-    margin-right: 4px;
+ul li a:focus-visible {
+    outline: 3px solid var(--primary);
+    outline-offset: 3px;
 }
 
 /* =========================
-   CONTENT LISTS
+   IMAGES
 ========================= */
 
-ul li {
-    color: var(--text);
-}
-
-section ul li,
-main ul li:not(:has(a)) {
-    list-style: disc;
-    margin-bottom: 0.5rem;
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
 }
 
 /* =========================
@@ -164,21 +214,103 @@ main ul li:not(:has(a)) {
 
 @media (max-width: 700px) {
 
-    h1 {
-        font-size: 1.6rem;
+    body {
+        padding: var(--space-md);
     }
 
     h2 {
-        font-size: 0.8rem;
+        margin-top: var(--space-lg);
     }
 
-    p,
-    ul li,
     ul li a {
+        padding: var(--space-sm);
         font-size: 0.95rem;
     }
+}
 
-    body {
-        padding: 1rem;
-    }
+section {
+    background: var(--card-bg);
+
+    border: 3px solid var(--border);
+    border-radius: 14px;
+
+    padding: var(--space-lg);
+    margin-bottom: var(--space-lg);
+
+    position: relative;
+
+    box-shadow:
+        inset -4px -4px 0 var(--shadow-dark),
+        inset 4px 4px 0 var(--shadow-light),
+        0 10px 25px rgba(0, 0, 0, 0.25);
+}
+
+/* subtiele “screen glow” rand */
+section::before {
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    border-radius: 12px;
+
+    pointer-events: none;
+
+    box-shadow: 0 0 0 1px rgba(0, 245, 255, 0.08);
+}
+
+#themeToggle {
+    position: fixed;
+    top: 1rem;
+    right: 1rem;
+
+    padding: 0.6rem 0.8rem;
+
+    background: var(--card-bg);
+    color: var(--text-light);
+
+    border: 2px solid var(--border);
+    border-radius: 10px;
+
+    cursor: pointer;
+
+    z-index: 1000;
+}
+
+#themeToggle:hover {
+    border-color: var(--primary);
+}
+
+#gameCanvas {
+    display: none;
+}
+
+
+/* =========================
+   GAME MODE
+========================= */
+
+body.game {
+    overflow: hidden;
+    background: radial-gradient(circle at center, #0b1020, #05060a);
+}
+
+/* blog UI volledig uit */
+body.game main {
+    display: none;
+}
+
+/* canvas aan in game mode */
+body.game #gameCanvas {
+    display: block;
+    position: fixed;
+    inset: 0;
+    width: 100vw;
+    height: 100vh;
+}
+
+/* optional: make button readable */
+body.game #themeToggle {
+    background: rgba(20, 20, 30, 0.8);
+    border-color: var(--primary);
 }

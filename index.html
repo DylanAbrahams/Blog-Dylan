@@ -5,11 +5,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Meesterschap Blog</title>
-    <link rel="stylesheet" href="./styles/style.css">
+
+    <link rel="stylesheet" href="styles/style.css" id="themeStylesheet">
 </head>
 
 <body>
+
+    <!-- UI -->
+    <button id="themeToggle">🎮 Game Mode</button>
+
     <main>
+
         <h1>Meesterschap Blog</h1>
 
         <p>
@@ -17,52 +23,57 @@
             die tijdens de minor hebben gesproken.
         </p>
 
+        <!-- WORLD CONTENT (ALSO GAME OBJECTS) -->
         <h2>Weekly Nerds verslagen</h2>
         <ul>
-            <li><a href="Weekly-Nerds/1-Kilian-Valkhof.html">WN #1: Kilian Valkhof</a></li>
-            <li><a href="Weekly-Nerds/2-PPK-Peter-Paul-Koch.html">WN #2: PPK (Peter Paul Koch)</a></li>
-            <li><a href="Weekly-Nerds/3-Nils-Binder.html">WN #3: Nils Binder</a></li>
-            <li><a href="Weekly-Nerds/4-Robbert-Boersma.html">WN #4: Robbert Boersma</a></li>
-            <li><a href="Weekly-Nerds/5-Rosa-Schuurmans.html">WN #5: Rosa Schuurmans</a></li>
-            <li><a href="Weekly-Nerds/6-Johan-Huijkman.html">WN #6: Johan Huijkman</a></li>
-            <li><a href="Weekly-Nerds/7-Hans-de-Zwart.html">WN #7: Hans de Zwart</a></li>
-            <li><a href="Weekly-Nerds/8-Q42.html">WN #8: Q42</a></li>
-            <li><a href="Weekly-Nerds/9-De-Voorhoede.html">WN #9: De Voorhoede</a></li>
+            <li class="game-object"><a href="Weekly-Nerds/1-Kilian-Valkhof.html">WN #1: Kilian Valkhof</a></li>
+            <li class="game-object"><a href="Weekly-Nerds/2-PPK-Peter-Paul-Koch.html">WN #2: PPK</a></li>
+            <li class="game-object"><a href="Weekly-Nerds/3-Nils-Binder.html">WN #3: Nils Binder</a></li>
+            <li class="game-object"><a href="Weekly-Nerds/4-Robbert-Boersma.html">WN #4: Robbert Boersma</a></li>
+            <li class="game-object"><a href="Weekly-Nerds/5-Rosa-Schuurmans.html">WN #5: Rosa Schuurmans</a></li>
+            <li class="game-object"><a href="Weekly-Nerds/6-Johan-Huijkman.html">WN #6: Johan Huijkman</a></li>
+            <li class="game-object"><a href="Weekly-Nerds/7-Hans-de-Zwart.html">WN #7: Hans de Zwart</a></li>
+            <li class="game-object"><a href="Weekly-Nerds/8-Q42.html">WN #8: Q42</a></li>
+            <li class="game-object"><a href="Weekly-Nerds/9-De-Voorhoede.html">WN #9: De Voorhoede</a></li>
         </ul>
 
         <h2>Vakken</h2>
         <ul>
-            <li><a href="Vakken/Sprint-0.html">Sprint 0</a></li>
-            <li><a href="Vakken/BT.html">Browser Technology</a></li>
-            <li><a href="Vakken/CSS.html">CSS To The Rescue</a></li>
-            <li><a href="Vakken/Hackaton.html">Hackaton</a></li>
-            <li><a href="Vakken/HCD.html">Human Centered Design</a></li>
-            <li><a href="Vakken/API.html">API</a></li>
-            <li><a href="Vakken/Meesterproef.html">Meesterproef</a></li>
+            <li class="game-object"><a href="Vakken/Sprint-0.html">Sprint 0</a></li>
+            <li class="game-object"><a href="Vakken/BT.html">Browser Technology</a></li>
+            <li class="game-object"><a href="Vakken/CSS.html">CSS To The Rescue</a></li>
+            <li class="game-object"><a href="Vakken/Hackaton.html">Hackaton</a></li>
+            <li class="game-object"><a href="Vakken/HCD.html">Human Centered Design</a></li>
+            <li class="game-object"><a href="Vakken/API.html">API</a></li>
+            <li class="game-object"><a href="Vakken/Meesterproef.html">Meesterproef</a></li>
         </ul>
 
         <h2>The Web You Want</h2>
         <ul>
-            <li><a href="The-Web-You-Want/Dag-1.html">Dag 1</a></li>
-            <li><a href="The-Web-You-Want/Dag-2.html">Dag 2</a></li>
+            <li class="game-object"><a href="The-Web-You-Want/Dag-1.html">Dag 1</a></li>
+            <li class="game-object"><a href="The-Web-You-Want/Dag-2.html">Dag 2</a></li>
         </ul>
 
         <h2>Oude Leerdoelen</h2>
         <ul>
-            <li><strong>Leerdoel 1:</strong> Ik wil indrukwekkende animaties kunnen maken in CSS, zodat mijn websites er levendiger en minder statisch uitzien.</li>
-            <li><strong>Leerdoel 2:</strong> Ik wil mezelf verbeteren in ideeën bedenken voor thema's van websites, zodat ik creatievere en leukere ontwerpen kan maken.</li>
-            <li><strong>Leerdoel 3:</strong> Ik wil leren efficiënter te coderen, zodat mijn code beter gestructureerd, overzichtelijker en makkelijker te lezen is.</li>
+            <li><strong>Leerdoel 1:</strong> Ik wil indrukwekkende animaties kunnen maken in CSS.</li>
+            <li><strong>Leerdoel 2:</strong> Ik wil creatiever worden in webdesign concepten.</li>
+            <li><strong>Leerdoel 3:</strong> Ik wil efficiënter en gestructureerder leren coderen.</li>
         </ul>
 
-       <h2>Nieuwe Leerdoelen</h2>
+        <h2>Nieuwe Leerdoelen</h2>
         <ul>
-            <li><strong>Leerdoel 1:</strong> Ik wil leren hoe ik een concreet plan kan maken somen met een team met een taakverdeling die voor iedereen fijn en duidelijk is.</li>
-            <li><strong>Leerdoel 2:</strong> Ik wil beter kunnen documenteren in mijn README's waarin ik zowel mijn progressie, mijn code en mijn inzichten laat zien.</li>
-            <li><strong>Leerdoel 3:</strong> Ik wil mijn creativiteit kunnen toepassen in het thema en styling van mijn projecten tot in de details.</li>
-
-            <!-- IFRAMES -->
+            <li><strong>Leerdoel 1:</strong> Samenwerken met duidelijke taakverdeling.</li>
+            <li><strong>Leerdoel 2:</strong> Betere documentatie in README’s.</li>
+            <li><strong>Leerdoel 3:</strong> Creativiteit beter toepassen in styling.</li>
         </ul>
+
     </main>
+
+        <!-- GAME LAYER -->
+    <canvas id="gameCanvas"></canvas>
+
+    <script src="./scripts/script.js"></script>
 
 </body>
 
