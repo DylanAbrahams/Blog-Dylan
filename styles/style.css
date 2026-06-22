@@ -315,6 +315,10 @@ body.game #themeToggle {
     border-color: var(--primary);
 }
 
+/* =========================
+   MOBILE D-PAD (BASE)
+========================= */
+
 #mobileDpad {
     position: fixed;
     left: 20px;
@@ -322,23 +326,34 @@ body.game #themeToggle {
     z-index: 9999;
 
     display: none;
+
     user-select: none;
+    -webkit-user-select: none;
+
     touch-action: none;
+
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
 }
 
-@media (max-width: 768px) {
-    #mobileDpad {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 10px;
-    }
+/* Alleen zichtbaar in game mode */
+body.game #mobileDpad {
+    display: flex;
 }
+
+/* =========================
+   BUTTON LAYOUT
+========================= */
 
 .dpadMiddle {
     display: flex;
     gap: 10px;
 }
+
+/* =========================
+   BUTTON BASE STYLE
+========================= */
 
 #mobileDpad button {
     width: 70px;
@@ -351,17 +366,30 @@ body.game #themeToggle {
     border-radius: 12px;
 
     font-size: 28px;
+    font-weight: bold;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
     transition:
         transform 0.08s ease,
         background 0.08s ease,
-        box-shadow 0.08s ease;
+        box-shadow 0.08s ease,
+        border-color 0.08s ease;
 
+    /* subtle cyan inner glow (match canvas UI) */
     box-shadow:
-        0 0 0 1px rgba(0,245,255,0.25) inset;
+        inset 0 0 0 1px rgba(0,245,255,0.25);
 
     touch-action: manipulation;
+
+    -webkit-tap-highlight-color: transparent;
 }
+
+/* =========================
+   PRESSED STATE
+========================= */
 
 #mobileDpad button:active,
 #mobileDpad button.pressed {
@@ -369,9 +397,48 @@ body.game #themeToggle {
 
     background: #111827;
 
+    border-color: rgba(0,245,255,0.5);
+
     box-shadow:
         inset 0 3px 8px rgba(0,0,0,0.45),
         0 0 12px rgba(0,245,255,0.35);
+}
 
-    border-color: rgba(0,245,255,0.5);
+/* =========================
+   MOBILE ONLY BEHAVIOR
+========================= */
+
+@media (min-width: 768px) {
+    body.game #mobileDpad {
+        display: none;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+}
+
+/* =========================
+   OPTIONAL: extra polish
+========================= */
+
+/* voorkomt iOS bounce/scroll issues */
+#mobileDpad {
+    overscroll-behavior: contain;
+}
+
+
+
+
+#fadeOverlay {
+    position: fixed;
+    inset: 0;
+    background: black;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.6s ease;
+    z-index: 9999;
+}
+
+#fadeOverlay.active {
+    opacity: 1;
 }

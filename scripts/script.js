@@ -18,8 +18,12 @@ window.addEventListener("resize", resize);
 
 const toggleBtn = document.getElementById("themeToggle");
 let isGame = JSON.parse(localStorage.getItem("isGame")) || false;
+
 let gpJumpPressed = false;
 let gpAInteractPressed = false;
+
+const fadeOverlay = document.getElementById("fadeOverlay");
+let isFading = false;
 
 // =========================
 // WORLD DATA
@@ -30,20 +34,15 @@ let GameData = {
     links: []
 };
 
-let worldBounds = {
-    minX: 0,
-    maxX: 3000,
-    minY: -1000,
-    maxY: 3000
-};
+let voidHeight = 1000;
 
 // =========================
 // PLAYER
 // =========================
 
 const player = {
-    x: Number(localStorage.getItem("playerX")) || 100,
-    y: Number(localStorage.getItem("playerY")) || 100,
+    x: Number(localStorage.getItem("playerX")) || 750,
+    y: Number(localStorage.getItem("playerY")) || 510,
     w: 20,
     h: 20,
     vx: 0,
@@ -165,8 +164,8 @@ toggleBtn.addEventListener("click", () => {
         const start = GameData.objects.find(o => o.type === "solid" && !o.isBorder);
 
         if (start) {
-            player.x = start.x + start.w / 2;
-            player.y = start.y - 120;
+            player.x = 750;
+            player.y = 510;
         }
     }
 });
@@ -386,40 +385,6 @@ window.buildWorldFromHTML = function () {
         }
     }
 
-    // =========================
-    // BOUNDS
-    // =========================
-
-    let minX = Infinity, maxX = -Infinity;
-    let minY = Infinity, maxY = -Infinity;
-
-    for (let o of objects) {
-        if (o.type !== "title") {
-            minX = Math.min(minX, o.x);
-            maxX = Math.max(maxX, o.x + o.w);
-            minY = Math.min(minY, o.y);
-            maxY = Math.max(maxY, o.y + o.h);
-        }
-    }
-
-    const padding = 300;
-    const borderThickness = 80;
-
-    worldBounds = {
-        minX: minX - padding,
-        maxX: maxX + padding,
-        minY: minY - padding,
-        maxY: maxY + padding
-    };
-
-    const W = worldBounds.maxX - worldBounds.minX;
-    const H = worldBounds.maxY - worldBounds.minY;
-
-    objects.push({ type: "solid", x: worldBounds.minX, y: worldBounds.minY, w: W, h: borderThickness, isBorder: true });
-    objects.push({ type: "solid", x: worldBounds.minX, y: worldBounds.maxY - borderThickness, w: W, h: borderThickness, isBorder: true });
-    objects.push({ type: "solid", x: worldBounds.minX, y: worldBounds.minY, w: borderThickness, h: H, isBorder: true });
-    objects.push({ type: "solid", x: worldBounds.maxX - borderThickness, y: worldBounds.minY, w: borderThickness, h: H, isBorder: true });
-
     GameData.objects = objects;
 };
 // =========================
@@ -490,6 +455,10 @@ function update() {
 
     localStorage.setItem("playerX", player.x);
     localStorage.setItem("playerY", player.y);
+
+    if (player.y > voidHeight && !isFading) {
+        triggerFadeReset();
+    }
 }
 
 // =========================
@@ -744,6 +713,32 @@ function isGrounded() {
         player.x + player.w > o.x &&
         player.x < o.x + o.w
     );
+}
+
+function triggerFadeReset() {
+    isFading = true;
+
+    fadeOverlay.classList.add("active");
+
+    setTimeout(() => {
+        // reset speler positie
+        player.x = 750;
+        player.y = 510;
+        player.vx = 0;
+        player.vy = 0;
+
+        // camera reset (optioneel maar voelt beter)
+        camera.x = 0;
+        camera.y = 0;
+
+        // fade out
+        fadeOverlay.classList.remove("active");
+
+        setTimeout(() => {
+            isFading = false;
+        }, 600);
+
+    }, 600);
 }
 
 const leftBtn = document.getElementById("dpadLeft");
