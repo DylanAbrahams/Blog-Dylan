@@ -314,3 +314,64 @@ body.game #themeToggle {
     background: rgba(20, 20, 30, 0.8);
     border-color: var(--primary);
 }
+
+#mobileDpad {
+    position: fixed;
+    left: 20px;
+    bottom: 20px;
+    z-index: 9999;
+
+    display: none;
+    user-select: none;
+    touch-action: none;
+}
+
+@media (max-width: 768px) {
+    #mobileDpad {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+}
+
+.dpadMiddle {
+    display: flex;
+    gap: 10px;
+}
+
+#mobileDpad button {
+    width: 70px;
+    height: 70px;
+
+    background: #1f2937;
+    color: #f9fafb;
+
+    border: 3px solid #374151;
+    border-radius: 12px;
+
+    font-size: 28px;
+
+    transition:
+        transform 0.08s ease,
+        background 0.08s ease,
+        box-shadow 0.08s ease;
+
+    box-shadow:
+        0 0 0 1px rgba(0,245,255,0.25) inset;
+
+    touch-action: manipulation;
+}
+
+#mobileDpad button:active,
+#mobileDpad button.pressed {
+    transform: scale(0.92);
+
+    background: #111827;
+
+    box-shadow:
+        inset 0 3px 8px rgba(0,0,0,0.45),
+        0 0 12px rgba(0,245,255,0.35);
+
+    border-color: rgba(0,245,255,0.5);
+}
