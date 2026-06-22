@@ -442,3 +442,36 @@ body.game #mobileDpad {
 #fadeOverlay.active {
     opacity: 1;
 }
+
+
+#backButton {
+    position: fixed;
+    top: 1rem;
+    left: 1rem;
+    z-index: 1000;
+
+    display: inline-block;
+
+    padding: 0.6rem 0.9rem;
+
+    background: var(--card-bg);
+    color: var(--text-light);
+
+    border: 2px solid var(--border);
+    border-radius: 10px;
+
+    text-decoration: none;
+    font-weight: 500;
+
+    box-shadow:
+        inset -2px -2px 0 var(--shadow-dark),
+        inset 2px 2px 0 var(--shadow-light);
+
+    transition: transform 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+}
+
+#backButton:hover {
+    transform: translateY(-2px);
+    border-color: var(--primary);
+    color: var(--primary);
+}

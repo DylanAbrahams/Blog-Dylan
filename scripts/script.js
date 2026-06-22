@@ -733,23 +733,23 @@ function drawPlayer() {
 
     let eyeDir = 0;
 
-const movingLeft =
-    keys["a"] ||
-    keys["arrowleft"] ||
-    touchControls.left ||
-    player.vx < -0.1;
+    const movingLeft =
+        keys["a"] ||
+        keys["arrowleft"] ||
+        touchControls.left ||
+        player.vx < -0.1;
 
-const movingRight =
-    keys["d"] ||
-    keys["arrowright"] ||
-    touchControls.right ||
-    player.vx > 0.1;
+    const movingRight =
+        keys["d"] ||
+        keys["arrowright"] ||
+        touchControls.right ||
+        player.vx > 0.1;
 
-if (movingLeft) {
-    eyeDir = -radius / 3;
-} else if (movingRight) {
-    eyeDir = radius / 3;
-}
+    if (movingLeft) {
+        eyeDir = -radius / 3;
+    } else if (movingRight) {
+        eyeDir = radius / 3;
+    }
 
     function drawEye(x, y) {
         // oogwit (clean off-white i.p.v. hard wit)
