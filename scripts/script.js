@@ -21,6 +21,12 @@ let isGame = JSON.parse(localStorage.getItem("isGame")) || false;
 
 let gpJumpPressed = false;
 let gpAInteractPressed = false;
+let gpYPressed = false;
+
+let scrollSpeed = 0;
+const maxScrollSpeed = 6;
+const scrollAcceleration = 0.15;
+const scrollFriction = 0.85;
 
 const fadeOverlay = document.getElementById("fadeOverlay");
 let isFading = false;
@@ -129,6 +135,35 @@ function updateGamepad() {
     // track states (edge detection)
     gpJumpPressed = b;
     gpAInteractPressed = a;
+
+
+    const y = gp.buttons[3]?.pressed; // Y button (Switch Pro / Xbox mapping)
+
+    // TOGGLE GAME MODE (Y)
+    if (y && !gpYPressed) {
+        isGame = !isGame;
+        localStorage.setItem("isGame", JSON.stringify(isGame));
+
+        document.body.classList.toggle("game", isGame);
+
+        toggleBtn.textContent = isGame ? "📄 Normal Mode" : "🎮 Game Mode";
+
+        if (isGame) {
+            buildWorldFromHTML();
+
+            const start = GameData.objects.find(o => o.type === "solid" && !o.isBorder);
+
+            if (start) {
+                player.x = 750;
+                player.y = 510;
+            }
+        }
+    }
+
+    // edge detection opslaan
+    gpYPressed = y;
+
+    
 }
 
 function mobileJump() {
@@ -329,8 +364,8 @@ window.buildWorldFromHTML = function () {
 
                 const posInLayer = layerItems.indexOf(li);
 
-                const x = startX + posInLayer * spacing;
-                const y = baseY[layerIndex] - (isBottom ? 60 : 45);
+                const x = startX - 30 + posInLayer * spacing;
+                const y = baseY[baseY.length - 1 - layerIndex] - (isBottom ? 60 : 45);
 
                 objects.push({
                     type: "link",
@@ -346,7 +381,7 @@ window.buildWorldFromHTML = function () {
 
                 objects.push({
                     type: "text",
-                    x: zoneX - 300,
+                    x: zoneX - 350,
                     y: baseY[baseY.length - 1] - 40 + textOffsetY,
                     text: li.textContent.trim()
                 });
@@ -405,7 +440,10 @@ function loop(t) {
     acc += delta;
 
     while (acc >= FIXED) {
-        if (isGame) update();
+        updateGamepad(); // <-- altijd input lezen
+
+        if (isGame) update(); // <-- alleen physics
+
         acc -= FIXED;
     }
 
@@ -823,6 +861,35 @@ function triggerFadeReset() {
 
     }, 600);
 }
+
+function gamepadScrollLoop() {
+    const gp = getGamepad();
+
+    if (gp && !isGame) {
+
+        const y = gp.axes[1];
+
+        if (Math.abs(y) > 0.15) {
+            scrollSpeed += y * scrollAcceleration;
+        } else {
+            scrollSpeed *= scrollFriction;
+        }
+
+        scrollSpeed = Math.max(-maxScrollSpeed, Math.min(maxScrollSpeed, scrollSpeed));
+
+        window.scrollBy(0, scrollSpeed);
+
+        const dpadUp = gp.buttons[12]?.pressed;
+        const dpadDown = gp.buttons[13]?.pressed;
+
+        if (dpadUp) window.scrollBy(0, -6);
+        if (dpadDown) window.scrollBy(0, 6);
+    }
+
+    requestAnimationFrame(gamepadScrollLoop);
+}
+
+gamepadScrollLoop();
 
 const leftBtn = document.getElementById("dpadLeft");
 const rightBtn = document.getElementById("dpadRight");
