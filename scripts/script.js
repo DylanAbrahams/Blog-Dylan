@@ -683,13 +683,96 @@ function render() {
     // =========================
     // PLAYER
     // =========================
-    ctx.fillStyle = "#ff4fd8";
-    ctx.fillRect(player.x, player.y, player.w, player.h);
-
-    ctx.strokeStyle = "#ffffff";
-    ctx.strokeRect(player.x, player.y, player.w, player.h);
+    drawPlayer();
 
     ctx.restore();
+}
+
+function drawPlayer() {
+    const centerX = player.x + player.w / 2;
+    const centerY = player.y + player.h / 2;
+    const radius = player.w / 2;
+
+    // =====================
+    // BODY (neon red passend bij UI)
+    // =====================
+
+    ctx.shadowColor = "rgba(255, 80, 120, 0.6)";
+    ctx.shadowBlur = 12;
+
+    ctx.fillStyle = "#ff3b5c"; // zachter neon rood (past beter bij dark UI)
+    ctx.beginPath();
+    ctx.arc(centerX, centerY, radius, 0, Math.PI * 2);
+    ctx.fill();
+
+    ctx.shadowBlur = 0;
+
+    // outline (past bij je cards / links borders)
+    ctx.strokeStyle = "#374151"; // zelfde als je UI cards
+    ctx.lineWidth = 2;
+    ctx.stroke();
+
+    // =====================
+    // GLANS (subtieler, UI-achtig)
+    // =====================
+
+    ctx.fillStyle = "rgba(255,255,255,0.18)";
+    ctx.beginPath();
+    ctx.arc(centerX - radius / 3, centerY - radius / 3, radius / 2.5, 0, Math.PI * 2);
+    ctx.fill();
+
+    // =====================
+    // EYES (zelfde gedrag, maar clean UI stijl)
+    // =====================
+
+    const eyeOffsetY = -radius / 4;
+    const eyeOffsetX = radius / 3;
+
+    const eyeRadius = radius / 5;
+    const pupilRadius = radius / 10;
+
+    let eyeDir = 0;
+
+const movingLeft =
+    keys["a"] ||
+    keys["arrowleft"] ||
+    touchControls.left ||
+    player.vx < -0.1;
+
+const movingRight =
+    keys["d"] ||
+    keys["arrowright"] ||
+    touchControls.right ||
+    player.vx > 0.1;
+
+if (movingLeft) {
+    eyeDir = -radius / 3;
+} else if (movingRight) {
+    eyeDir = radius / 3;
+}
+
+    function drawEye(x, y) {
+        // oogwit (clean off-white i.p.v. hard wit)
+        ctx.fillStyle = "#e5e7eb";
+        ctx.beginPath();
+        ctx.arc(x + eyeDir, y, eyeRadius, 0, Math.PI * 2);
+        ctx.fill();
+
+        ctx.strokeStyle = "#1f2937"; // match platform dark borders
+        ctx.lineWidth = 1;
+        ctx.stroke();
+
+        // pupil (donker UI zwart)
+        ctx.fillStyle = "#111827";
+        ctx.beginPath();
+        ctx.arc(x + eyeDir, y, pupilRadius, 0, Math.PI * 2);
+        ctx.fill();
+    }
+
+    const eyeY = centerY + eyeOffsetY;
+
+    drawEye(centerX - eyeOffsetX, eyeY);
+    drawEye(centerX + eyeOffsetX, eyeY);
 }
 
 // =========================
